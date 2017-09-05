@@ -158,15 +158,17 @@ a',strtotime($ohcoverReq['sch_time']));
 		$alreadySignedUp=mysqli_query($link, "SELECT cover_id FROM oh_log WHERE log_id=".$ohcoverReq['log_id']." AND 
 cover_id=$me");
 		$alreadySignedUp = (mysqli_num_rows($alreadySignedUp)); //transform the query result into an effective boolean of whether the guide is signed up
-		$coverPopup = genOhCoverPopup($me,$coverReq['log_id'],$coverReq['guide_id']);
+		$ohcoverPopup = genOhCoverPopup($me,$ohcoverReq['log_id'],$ohcoverReq['guide_id']);
 		if (!$alreadySignedUp) {
-			$cover_label = "<button style=\"line-height:17px; font-size:8pt; font-weight:bold;\" class=\"btn btn-xs btn-warning\" data-toggle=\"popover\" data-placement=\"top\" data-html=\"true\" data-content=\"".$coverPopup."\">".$coverReq['firstname']." ".$coverReq['lastname']."</button>";
+			$ohcover_label = "<button style=\"line-height:17px; font-size:8pt; font-weight:bold;\" class=\"btn btn-xs btn-warning\" 
+data-toggle=\"popover\" data-placement=\"top\" data-html=\"true\" data-content=\"".$coverPopup."\">".$ohcoverReq['firstname']." 
+".$ohcoverReq['lastname']."</button>";
 		} else {
-			$cover_label = "<span style=\"cursor:default\" class=\"label 
+			$ohcover_label = "<span style=\"cursor:default\" class=\"label 
 label-default\">".$ohcoverReq['firstname']." ".$ohcoverReq['lastname']."</span>";
 		}
 		$ohcoverList = $ohcoverList."\n"."<tr><td 
-style=\"vertical-align:middle; padding-top:0px; padding-bottom:0px\">".$oh_label."</td><td style=\"vertical-align:middle\">".$cover_label."</td></tr>";
+style=\"vertical-align:middle; padding-top:0px; padding-bottom:0px\">".$oh_label."</td><td style=\"vertical-align:middle\">".$ohcover_label."</td></tr>";
 		$lastDate = $ohcoverReq['sch_time'];
 	}
 }

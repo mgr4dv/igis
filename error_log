@@ -13607,3 +13607,10 @@
 [05-Sep-2017 15:04:26 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/myigis.php on line 52
 [05-Sep-2017 15:08:55 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/myigis.php on line 51
 [05-Sep-2017 15:08:55 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/myigis.php on line 52
+[05-Sep-2017 15:43:24 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/myigis.php on line 51
+[05-Sep-2017 15:43:24 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/myigis.php on line 52
+[05-Sep-2017 15:43:31 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/myigis.php on line 51
+[05-Sep-2017 15:43:31 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/myigis.php on line 52
+[05-Sep-2017 15:51:46 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/myigis.php on line 51
+[05-Sep-2017 15:51:46 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/myigis.php on line 52
+[05-Sep-2017 15:13:48 America/Chicago] PHP Parse error:  syntax error, unexpected 'a' in /home1/uvaguide/public_html/igis/home.php on line 287
