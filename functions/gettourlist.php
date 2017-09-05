@@ -21,7 +21,7 @@ if (time()<mktime(0,0,0,6,1,$currYear)) {
 } else { //otherwise...
 	//must be fall semester
 	$semester = 'fall';
-	$startDate = date('Y-m-d',mktime(0,0,0,8,1,$currYear));
+	$startDate = date('Y-m-d',mktime(0,0,0,6,2,$currYear));
 	$endDate = date('Y-m-d',mktime(0,0,0,12,31,$currYear));
 	$tourReq = $igis_settings['tour_req_fall'];
 	$hisReq = $igis_settings['his_req_fall'];
@@ -66,8 +66,8 @@ $i=mysqli_num_rows($toursQuery);
 while($tour=mysqli_fetch_array($toursQuery)) {
 	//figure out if the semester has changed to know whether to put in a bold divider line
 	$year = date('Y',strtotime($tour['date']));
-	if (date('n',strtotime($tour['date']))>=8) {
-		$season = 'Fall'; //if the month is August or later, it's the fall semester
+	if (date('n',strtotime($tour['date']))>=6) {
+		$season = 'Fall'; //if the month is June or later, it's the fall semester
 	} else {
 		$season = 'Spring'; //otherwise it's the spring
 	}

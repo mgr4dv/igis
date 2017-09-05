@@ -55,7 +55,7 @@ while ($guideInfo = mysqli_fetch_array($guides_query)) {
 		$admReq = $igis_settings['adm_req_spring'];
 	} else { //otherwise...
 		//must be fall semester
-		$startDate = date('Y-m-d',mktime(0,0,0,8,1,$currYear));
+		$startDate = date('Y-m-d',mktime(0,0,0,6,2,$currYear));
 		$endDate = date('Y-m-d',mktime(0,0,0,12,31,$currYear));
 		$tourReq = $igis_settings['tour_req_fall'];
 		$hisReq = $igis_settings['his_req_fall'];

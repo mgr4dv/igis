@@ -12965,3 +12965,36 @@
 [06-Jun-2017 18:38:10 America/New_York] PHP Notice:  Undefined index: desc in /home1/uvaguide/public_html/igis/functions/changetype.php on line 15
 [06-Jun-2017 18:38:10 America/New_York] PHP Notice:  Undefined variable: noEdit in /home1/uvaguide/public_html/igis/functions/printtourtypes.php on line 29
 [08-Jun-2017 23:09:37 America/New_York] PHP Notice:  Undefined variable: height in /home1/uvaguide/public_html/igis/functions/changephoto.php on line 36
+[17-Aug-2017 16:31:35 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[17-Aug-2017 16:43:20 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[17-Aug-2017 16:46:12 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[17-Aug-2017 16:47:04 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[17-Aug-2017 16:47:48 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[17-Aug-2017 16:48:07 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[17-Aug-2017 16:48:37 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[20-Aug-2017 23:49:10 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[22-Aug-2017 12:38:57 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[22-Aug-2017 12:38:59 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[22-Aug-2017 12:39:01 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[22-Aug-2017 12:39:23 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[22-Aug-2017 12:39:24 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[22-Aug-2017 12:39:52 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[22-Aug-2017 12:40:12 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[22-Aug-2017 12:40:40 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[22-Aug-2017 12:40:44 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[22-Aug-2017 16:19:58 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changetour.php on line 50
+[24-Aug-2017 12:44:43 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[26-Aug-2017 15:03:35 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[26-Aug-2017 15:03:37 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[26-Aug-2017 15:03:39 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[26-Aug-2017 15:03:40 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[26-Aug-2017 15:03:43 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[26-Aug-2017 15:05:57 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[28-Aug-2017 13:21:28 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[28-Aug-2017 15:27:57 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[03-Sep-2017 22:15:11 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[03-Sep-2017 23:16:55 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[04-Sep-2017 15:35:10 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/changepoints.php on line 26
+[04-Sep-2017 21:52:10 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/gettourlist.php on line 49
+[04-Sep-2017 21:52:10 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/gettourlist.php on line 65
+[04-Sep-2017 21:52:10 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/functions/gettourlist.php on line 66

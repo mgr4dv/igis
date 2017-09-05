@@ -129,45 +129,52 @@ if ($coverList!='' && $numCoverRequests) {
 }
 
 //GET OH COVERS
-$coverRequests = mysqli_query($link,"SELECT * FROM oh_log
+
+$ohcoverRequests = mysqli_query($link,"SELECT * FROM oh_log
 									LEFT JOIN guides ON guides.guide_id=oh_log.cover_id
 									WHERE sch_time>='$today' AND cover=1
 									ORDER BY sch_time");
 
 
-$numCoverRequests = mysqli_num_rows($coverRequests);
-if ($numCoverRequests) {
+$ohnumCoverRequests = mysqli_num_rows($ohcoverRequests);
+if ($ohnumCoverRequests) {
 	$lastDate='';
-	while ($coverReq=mysqli_fetch_array($coverRequests)) {
-		if (strtotime($coverReq['sch_time'])<time()) {
-			$numCoverRequests--;
+	while ($ohcoverReq=mysqli_fetch_array($ohcoverRequests)) {
+		if (strtotime($ohcoverReq['sch_time'])<time()) {
+			$ohnumCoverRequests--;
 			continue; //skip this tour if it's in the past (like a tour that was earlier today)
 		}
-		if ($coverReq['sch_time']!=$lastDate) {
+		if ($ohcoverReq['sch_time']!=$lastDate) {
 			//Add a date header if this tour is on a new day
-		$coverList = $coverList."<tr><td colspan=2><span style=\"font-weight:bold; font-style:italic; color:#000000\">".date('l, F jS',strtotime($coverReq['sch_time']))."</span></td></tr>";
+		$ohcoverList = $ohcoverList."<tr><td colspan=2><span 
+style=\"font-weight:bold; font-style:italic; color:#000000\">".date('l, F 
+jS',strtotime($ohcoverReq['sch_time']))."</span></td></tr>";
 
 		}
-		$time = date('g:i a',strtotime($coverReq['sch_time']));
+		$time = date('g:i 
+a',strtotime($ohcoverReq['sch_time']));
 		$oh_label="<span style=\"cursor:default; display:inline-block; line-height:17px; font-size:10.5pt\" class=\"label label-primary\">".$time."</span>";
 
-		$alreadySignedUp=mysqli_query($link, "SELECT cover_id FROM oh_log WHERE log_id=".$coverReq['log_id']." AND cover_id=$me");
+		$alreadySignedUp=mysqli_query($link, "SELECT cover_id FROM oh_log WHERE log_id=".$ohcoverReq['log_id']." AND 
+cover_id=$me");
 		$alreadySignedUp = (mysqli_num_rows($alreadySignedUp)); //transform the query result into an effective boolean of whether the guide is signed up
 		$coverPopup = genOhCoverPopup($me,$coverReq['log_id'],$coverReq['guide_id']);
 		if (!$alreadySignedUp) {
 			$cover_label = "<button style=\"line-height:17px; font-size:8pt; font-weight:bold;\" class=\"btn btn-xs btn-warning\" data-toggle=\"popover\" data-placement=\"top\" data-html=\"true\" data-content=\"".$coverPopup."\">".$coverReq['firstname']." ".$coverReq['lastname']."</button>";
 		} else {
-			$cover_label = "<span style=\"cursor:default\" class=\"label label-default\">".$coverReq['firstname']." ".$coverReq['lastname']."</span>";
+			$cover_label = "<span style=\"cursor:default\" class=\"label 
+label-default\">".$ohcoverReq['firstname']." ".$ohcoverReq['lastname']."</span>";
 		}
-		$coverList = $coverList."\n"."<tr><td style=\"vertical-align:middle; padding-top:0px; padding-bottom:0px\">".$oh_label."</td><td style=\"vertical-align:middle\">".$cover_label."</td></tr>";
-		$lastDate = $coverReq['sch_time'];
+		$ohcoverList = $ohcoverList."\n"."<tr><td 
+style=\"vertical-align:middle; padding-top:0px; padding-bottom:0px\">".$oh_label."</td><td style=\"vertical-align:middle\">".$cover_label."</td></tr>";
+		$lastDate = $ohcoverReq['sch_time'];
 	}
 }
-if ($coverList!='' && $numCoverRequests) {
+if ($ohcoverList!='' && $ohnumCoverRequests) {
 	$ohcoverRequestTable =
 		'<p style="font-weight:bold; text-align:center">Active Cover Requests:</p>
 		<table class="table">
-			'.mysqli_error($link).$coverList.'
+			'.mysqli_error($link).$ohcoverList.'
 		</table>';
 } else {
 	$ohcoverRequestTable = "<tr><td colspan=3><em>No active OH covers</em></td></tr>";;

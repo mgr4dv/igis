@@ -76,7 +76,7 @@ $oh_query = mysqli_query($link,"SELECT log_id,sch_id,cover_id,sch_time,log_time,
     if ($log_time == ""){
       $log_time = "NULL";
     } else {
-      $log_time = date("D jS - g:i a",strtotime($log_time));
+      $log_time = date("D j/m/Y - g:i a",strtotime($log_time));
     }
 
 
@@ -91,7 +91,7 @@ $oh_query = mysqli_query($link,"SELECT log_id,sch_id,cover_id,sch_time,log_time,
       $btn ="<button type='button' class='btn btn-primary' onClick='unhandle(".$log_id.")'>Unhandle</button>";
     }
 
-    $sch_time = date("D jS - g:i a",strtotime($sch_time));
+    $sch_time = date("D j/m/Y - g:i a",strtotime($sch_time));
 
     $html = $html."<tr bgcolor='$row_color'>
                     <td> $delete_btn</td>

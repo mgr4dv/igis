@@ -8,7 +8,7 @@ $db=mysqli_query($link,"SELECT * FROM oh_schedule");
 
 	    $oh_id = $row[0];
 	    $guide_id = $row[1];
-	    $day = $row[2];
+	    $day = $row[2]+1;
 	    $time = $row[3];
 
 	    $day = $day; 
