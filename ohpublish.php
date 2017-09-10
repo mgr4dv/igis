@@ -3,8 +3,6 @@
 include("functions/link.php");
 
 
-//Note: due to differences between Mysql and MariaDB, this will likely
-//break when pushed to the main server
 mysqli_query($link,"SET time_zone = 'US/Eastern';");
 $db=mysqli_query($link,"SELECT firstname,lastname,log_id
                         FROM oh_log LEFT JOIN guides ON cover_id=guide_id
