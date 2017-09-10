@@ -134,7 +134,7 @@ $ohcoverRequests = mysqli_query($link,"SELECT * FROM oh_log
 									LEFT JOIN guides ON guides.guide_id=oh_log.cover_id
 									WHERE sch_time>='$today' AND cover=1
 									ORDER BY sch_time");
-
+$ohcoverList = "";
 
 $ohnumCoverRequests = mysqli_num_rows($ohcoverRequests);
 if ($ohnumCoverRequests) {
@@ -146,28 +146,28 @@ if ($ohnumCoverRequests) {
 		}
 		if ($ohcoverReq['sch_time']!=$lastDate) {
 			//Add a date header if this tour is on a new day
-		$ohcoverList = $ohcoverList."<tr><td colspan=2><span 
-style=\"font-weight:bold; font-style:italic; color:#000000\">".date('l, F 
+		$ohcoverList = $ohcoverList."<tr><td colspan=2><span
+style=\"font-weight:bold; font-style:italic; color:#000000\">".date('l, F
 jS',strtotime($ohcoverReq['sch_time']))."</span></td></tr>";
 
 		}
-		$time = date('g:i 
+		$time = date('g:i
 a',strtotime($ohcoverReq['sch_time']));
 		$oh_label="<span style=\"cursor:default; display:inline-block; line-height:17px; font-size:10.5pt\" class=\"label label-primary\">".$time."</span>";
 
-		$alreadySignedUp=mysqli_query($link, "SELECT cover_id FROM oh_log WHERE log_id=".$ohcoverReq['log_id']." AND 
+		$alreadySignedUp=mysqli_query($link, "SELECT cover_id FROM oh_log WHERE log_id=".$ohcoverReq['log_id']." AND
 cover_id=$me");
 		$alreadySignedUp = (mysqli_num_rows($alreadySignedUp)); //transform the query result into an effective boolean of whether the guide is signed up
 		$ohcoverPopup = genOhCoverPopup($me,$ohcoverReq['log_id'],$ohcoverReq['guide_id']);
 		if (!$alreadySignedUp) {
-			$ohcover_label = "<button style=\"line-height:17px; font-size:8pt; font-weight:bold;\" class=\"btn btn-xs btn-warning\" 
-data-toggle=\"popover\" data-placement=\"top\" data-html=\"true\" data-content=\"".$coverPopup."\">".$ohcoverReq['firstname']." 
+			$ohcover_label = "<button style=\"line-height:17px; font-size:8pt; font-weight:bold;\" class=\"btn btn-xs btn-warning\"
+data-toggle=\"popover\" data-placement=\"top\" data-html=\"true\" data-content=\"".$coverPopup."\">".$ohcoverReq['firstname']."
 ".$ohcoverReq['lastname']."</button>";
 		} else {
-			$ohcover_label = "<span style=\"cursor:default\" class=\"label 
+			$ohcover_label = "<span style=\"cursor:default\" class=\"label
 label-default\">".$ohcoverReq['firstname']." ".$ohcoverReq['lastname']."</span>";
 		}
-		$ohcoverList = $ohcoverList."\n"."<tr><td 
+		$ohcoverList = $ohcoverList."\n"."<tr><td
 style=\"vertical-align:middle; padding-top:0px; padding-bottom:0px\">".$oh_label."</td><td style=\"vertical-align:middle\">".$ohcover_label."</td></tr>";
 		$lastDate = $ohcoverReq['sch_time'];
 	}
