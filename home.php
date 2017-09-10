@@ -161,7 +161,8 @@ cover_id=$me");
 		$ohcoverPopup = genOhCoverPopup($me,$ohcoverReq['log_id'],$ohcoverReq['guide_id']);
 		if (!$alreadySignedUp) {
 			$ohcover_label = "<button style=\"line-height:17px; font-size:8pt; font-weight:bold;\" class=\"btn btn-xs btn-warning\" 
-data-toggle=\"popover\" data-placement=\"top\" data-html=\"true\" data-content=\"".$coverPopup."\">".$ohcoverReq['firstname']." 
+data-toggle=\"popover\" data-placement=\"top\" data-html=\"true\" 
+data-content=\"".$ohcoverPopup."\">".$ohcoverReq['firstname']." 
 ".$ohcoverReq['lastname']."</button>";
 		} else {
 			$ohcover_label = "<span style=\"cursor:default\" class=\"label 
