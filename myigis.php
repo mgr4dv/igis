@@ -48,8 +48,8 @@ $TIPsQuery = mysqli_query($link, "SELECT date, time, title, credits, attendance 
 $TIPsError = mysqli_error($link);
 $totalTIPs = 0;
 $TIPsRows = '';
-$i=mysqli_num_rows($TIPsQuery);
-while($TIP=mysqli_fetch_array($TIPsQuery)) {
+//$i=mysqli_num_rows($TIPsQuery);
+while(false) {
 	if (strtotime($TIP['date'].' '.$TIP['time'])>strtotime($startDate)) {
 		$TIPRowStyle = "style=\"background-color:#EEEEFF\"";
 		if ($TIP['attendance']==1) {
