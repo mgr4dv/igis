@@ -44,9 +44,9 @@ if ($guideID=='all') {
 	$guides_query_error = mysqli_error($link);
 	$c = 0;
 	while ($guideInfo = mysqli_fetch_array($guides_query)) {
-		
+
 		//===== get points info: =====
-		
+
 		$guide[$c] = $guideInfo;
 		$points_query = mysqli_query($link, "SELECT SUM(value) AS TOTAL FROM points WHERE guide=".$guideInfo['guide_id']." GROUP BY guide");
 		$points_query_error = mysqli_error($link);
@@ -59,9 +59,9 @@ if ($guideID=='all') {
 		}
 		$guide[$c]['points'] = $sumPoints;
 		$pointsList[$c] = $sumPoints;
-		
+
 		//===== get tour count info: =====
-		
+
 		$currYear = date('Y');
 		//if the current date is before June 1st of the current year...
 		if (time()<mktime(0,0,0,6,1,$currYear)) {
@@ -79,10 +79,10 @@ if ($guideID=='all') {
 			$hisReq = $igis_settings['his_req_fall'];
 			$admReq = $igis_settings['adm_req_fall'];
 		}
-		$tourCountQuery = mysqli_query($link, "SELECT adm_req, his_req FROM tours_handled 
-												INNER JOIN tours_info on tours_info.tour_id=tours_handled.tour_id 
-												INNER JOIN tours_types ON tours_info.type=tours_types.type_id 
-												WHERE tours_handled.guide_id=".$guide[$c]['guide_id']." AND date>='$startDate' AND date<='$endDate' AND tours_handled.status='credited' 
+		$tourCountQuery = mysqli_query($link, "SELECT adm_req, his_req FROM tours_handled
+												INNER JOIN tours_info on tours_info.tour_id=tours_handled.tour_id
+												INNER JOIN tours_types ON tours_info.type=tours_types.type_id
+												WHERE tours_handled.guide_id=".$guide[$c]['guide_id']." AND date>='$startDate' AND date<='$endDate' AND tours_handled.status='credited'
 												ORDER BY date desc, time desc");
 		$eitherCount = 0;
 		$admCount = 0;
@@ -125,7 +125,7 @@ if ($guideID=='all') {
 		} else {
 			$fulfilled = false;
 		}
-		
+
 		$guide[$c]['tourCount'] = $totalTours;
 		$guide[$c]['admCount'] = $admCount;
 		$guide[$c]['hisCount'] = $hisCount;
@@ -134,7 +134,7 @@ if ($guideID=='all') {
 		$guide[$c]['fulfilled'] = $fulfilled;
 		$guide[$c]['fulfilledAdmHis'] = $fulfilledAdmHis;
 		$tourCountList[$c] = $totalTours;
-		
+
 		$c++;
 	}
 
@@ -157,26 +157,26 @@ if ($guideID=='all') {
 	$prevCategory = '';
 	for ($i=0; $i<count($guide); $i++) {
 		$guideToPrint = $guide[$i];
-		
+
 		//Account for the fact that some people don't update all their information:
 		if ($guideToPrint['probie_class']=="-" || $guideToPrint['probie_class']=="") {
 			$probieStr = "<em style=\"color:#BBBBBB\">unknown</em>";
 		} else {
 			$probieStr = $guideToPrint['probie_class'];
 		}
-		
+
 		if ($guideToPrint['year']=="0" || $guideToPrint['year']=="") {
 			$yearStr = "<em style=\"color:#BBBBBB\">unset</em>";
 		} else {
 			$yearStr = $guideToPrint['year'];
 		}
-		
+
 		if ($guideToPrint['school']=="") {
 			$schoolStr = "<em style=\"color:#BBBBBB\">unset</em>";
 		} else {
 			$schoolStr = $guideToPrint['school'];
 		}
-		
+
 		if ($guideToPrint['points']<=0) {
 			$pointButtonColor = 'success';
 		} else if ($guideToPrint['points']<$igis_settings['point_threshold']) {
@@ -185,7 +185,7 @@ if ($guideID=='all') {
 			$pointButtonColor = 'danger';
 		}
 		$pointStr = '<button type="button" class="btn btn-'.$pointButtonColor.'" onclick="pointsPopup('.$guideToPrint['guide_id'].')">'.$guideToPrint['points'].'</button>';
-		
+
 		//set the color:
 		if ($guideToPrint['fulfilled']) {
 			$tourCountColor = '#009900';
@@ -199,8 +199,8 @@ if ($guideID=='all') {
 			$admHisLabel = '<br><span style="font-size:8pt; font-style:italic; color:#999999">(< A/H)<span>';
 		}
 		$tourStr = '<span style="font-weight:bold; color:'.$tourCountColor.'">'.$guideToPrint['tourCount'].'</span>'.$admHisLabel.mysqli_error($link);
-		
-		
+
+
 		$catRow = "";
 		$newCategory = false;
 		if ($categorize) {
@@ -231,8 +231,8 @@ if ($guideID=='all') {
 			}
 		}
 
-		
-		
+
+
 		$row = "<tr>
 				<td style=\"vertical-align:middle\"><h4 style=\"margin:0px\"><a href=\"guide.php?id=".$guideToPrint['guide_id']."\">".$guideToPrint['firstname']." ".$guideToPrint['lastname']."</a></h4></td>
 				<td style=\"vertical-align:middle\">".$schoolStr."</td>
@@ -242,7 +242,7 @@ if ($guideID=='all') {
 				<td style=\"vertical-align:middle\">".$tourStr."</td>
 				<td style=\"vertical-align:middle\"><input type=\"checkbox\" value=\"".$guideToPrint['guide_id']."\"></td>
 				</tr>";
-		
+
 		$points_list_content = $points_list_content . "\n" . $catRow . $row;
 	}
 
@@ -253,7 +253,7 @@ if ($guideID=='all') {
 
 	$points_query = mysqli_query($link, "SELECT * FROM points WHERE guide=".$guideID." ORDER BY assigned DESC");
 	$points_query_error = mysqli_error($link);
-	
+
 	$header = "<tr>
 				\n<th style=\"width:110px\">Assigned:</th>
 				\n<th>Value:</th>
@@ -278,7 +278,7 @@ if ($guideID=='all') {
 						\n</tr>";
 		$sumPoints = $sumPoints+$point['value'];
 	}
-	
+
 	$out['sumPoints'] = $sumPoints;
 	if ($sumPoints<=0) {
 		$pointLabelColor = 'success';
@@ -292,10 +292,10 @@ if ($guideID=='all') {
 	} else {
 		$pluralize = "s";
 	}
-	
+
 	$out['sumPointsLabel'] = '<span class="label label-'.$pointLabelColor.'">'.$sumPoints.' point'.$pluralize.'<span>';
 	$out['addRemoveButton'] = '<button class="btn btn-xs btn-primary" onclick="addRemovePopup('.$guideID.')">+ / -</button>';
-	
+
 	$out['table'] = '<table class="table">
 						<thead>
 							'.$header.'
@@ -304,12 +304,12 @@ if ($guideID=='all') {
 							'.$rows.'
 						</tbody>
 					</table>';
-			
+
 	$guide = mysqli_query($link, "SELECT firstname, lastname FROM guides WHERE guide_id=$guideID");
 	$guide = mysqli_fetch_array($guide);
 	$out['guideName'] = $guide['firstname']." ".$guide['lastname'];
-	
-	
+
+
 	$currYear = date('Y');
 	//if the current date is before June 1st of the current year...
 	if (time()<mktime(0,0,0,6,1,$currYear)) {
@@ -327,10 +327,10 @@ if ($guideID=='all') {
 		$hisReq = $igis_settings['his_req_fall'];
 		$admReq = $igis_settings['adm_req_fall'];
 	}
-	$tourCountQuery = mysqli_query($link, "SELECT adm_req, his_req FROM tours_handled 
-											INNER JOIN tours_info on tours_info.tour_id=tours_handled.tour_id 
-											INNER JOIN tours_types ON tours_info.type=tours_types.type_id 
-											WHERE tours_handled.guide_id=".$guideID." AND date>='$startDate' AND date<='$endDate' AND tours_handled.status='credited' 
+	$tourCountQuery = mysqli_query($link, "SELECT adm_req, his_req FROM tours_handled
+											INNER JOIN tours_info on tours_info.tour_id=tours_handled.tour_id
+											INNER JOIN tours_types ON tours_info.type=tours_types.type_id
+											WHERE tours_handled.guide_id=".$guideID." AND date>='$startDate' AND date<='$endDate' AND tours_handled.status='credited'
 											ORDER BY date desc, time desc");
 	$eitherCount = 0;
 	$admCount = 0;
@@ -347,7 +347,7 @@ if ($guideID=='all') {
 			$neitherCount++;
 		}
 	}
-	
+
 	$totalTours = $eitherCount+$admCount+$hisCount+$neitherCount;
 	if ($totalTours>=$tourReq && $admCount>=$admReq && $hisCount>=$hisReq) {
 		$fulfilled = true;
@@ -375,9 +375,9 @@ if ($guideID=='all') {
 	} else {
 		$tourCountColor = '#FF0000';
 	}
-	
+
 	$out['tourCount'] = mysqli_error($link)."<span style=\"font-weight:bold; color:$tourCountColor\">".$totalTours." tours given:</span> ".$admCount." admissions, ".$hisCount." historical, ".$eitherCount." arbitrary (and ".$neitherCount." that didn't count)";
-	
+
 	echo json_encode($out);
 }
 

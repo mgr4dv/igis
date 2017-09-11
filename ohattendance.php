@@ -246,6 +246,11 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 			type:"unhandled"
 		},function(data){
 			$('#oh_log').html(data);
+			$('#oh_table tr').click(function(event) {
+				if (event.target.type !== 'checkbox' && event.target.type !== 'button') {
+					$(':checkbox', this).trigger('click');
+				}
+			});
 		});
 	}
 
@@ -292,6 +297,11 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 			type:type
 		},function(data){
 			$('#oh_log').html(data);
+			$('#oh_table tr').click(function(event) {
+				if (event.target.type !== 'checkbox' && event.target.type !== 'button') {
+					$(':checkbox', this).trigger('click');
+				}
+			});
 		});
 	}
 
@@ -305,6 +315,11 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 		}
 
 	function handle(id){
+			if (id === -1){
+				multideleteoh();
+				return;
+			}
+
 			$.post("functions/updateohlog.php",{
 				id:id,
 				status:1
@@ -313,17 +328,36 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 			});
 		}
 
-		function unhandle(id){
+	function multideleteoh(){
+			var ohs = [];
+			$(':checkbox:checked').each( function() {
+				ohs[ohs.length] = $(this).val();
+			});
+
+			ohs.forEach(function(entry){
 				$.post("functions/updateohlog.php",{
-					id:id,
-					status:0
-				},function(data){
-					getOhLog("current");
-				});
-			}
+					id:entry,
+					status:1
+				},function(data){});
+		});
+			getOhLog("current");
+		}
+
+	function unhandle(id){
+			$.post("functions/updateohlog.php",{
+				id:id,
+				status:0
+			},function(data){
+				getOhLog("current");
+			});
+		}
 
 
 		function cover(id){
+			if( id === -1){
+				multicoveroh();
+				return;
+			}
 				$.post("functions/updateohlog.php",{
 					id:id,
 					status:1
@@ -341,7 +375,35 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 				});
 			}
 
+		function multicoveroh(){
+				var ohs = [];
+				$(':checkbox:checked').each( function() {
+					ohs[ohs.length] = $(this).val();
+				});
+
+				ohs.forEach(function(entry){
+					$.post("functions/updateohlog.php",{
+						id:entry,
+						status:1
+					},function(data){});
+
+					$.post("functions/changepoints.php",{
+						oh_id:entry,
+						pointVal:-1,
+						deletePoint:0,
+						comment:"Covered OH"
+					},function(data){});
+
+			});
+				getOhLog("current");
+			}
+
 		function miss(id){
+			if( id === -1 ){
+				multimissoh();
+				return;
+			}
+
 				$.post("functions/updateohlog.php",{
 					id:id,
 					status:1
@@ -359,8 +421,36 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 				});
 			}
 
+			function multimissoh(){
+					var ohs = [];
+					$(':checkbox:checked').each( function() {
+						ohs[ohs.length] = $(this).val();
+					});
+
+					ohs.forEach(function(entry){
+						$.post("functions/updateohlog.php",{
+							id:entry,
+							status:1
+						},function(data){});
+
+						$.post("functions/changepoints.php",{
+							oh_id:entry,
+							pointVal:1,
+							deletePoint:0,
+							comment:"Missed OH"
+						},function(data){});
+
+				});
+					getOhLog("current");
+				}
+
 
 			function late(id){
+				if( id === -1 ){
+					multilateoh();
+					return;
+				}
+
 					$.post("functions/updateohlog.php",{
 						id:id,
 						status:1
@@ -377,6 +467,29 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 
 					});
 				}
+
+				function multilateoh(){
+						var ohs = [];
+						$(':checkbox:checked').each( function() {
+							ohs[ohs.length] = $(this).val();
+						});
+
+						ohs.forEach(function(entry){
+							$.post("functions/updateohlog.php",{
+								id:entry,
+								status:1
+							},function(data){});
+
+							$.post("functions/changepoints.php",{
+								oh_id:entry,
+								pointVal:1,
+								deletePoint:0,
+								comment:"Late to OH"
+							},function(data){});
+
+					});
+						getOhLog("current");
+					}
 
 			function create_oh(){
 				var guideList = <?echo $guides?>;

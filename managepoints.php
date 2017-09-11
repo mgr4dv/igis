@@ -1,5 +1,5 @@
 <? date_default_timezone_set('America/New_York');
-require_once("authenticate.php"); 
+require_once("authenticate.php");
 
 $currYear = date('Y');
 //if the current date is before June 1st of the current year...
@@ -109,13 +109,13 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 		<!--typeahead; the auto-complete textbox for picking a guide-->
 		<script type="text/javascript" src="js/typeahead.bundle.js"></script>
 	</head>
-  
+
 <!-- Body of webpage (not reused, but reusable elements inside) -->
 	<body style="padding-top:40px; padding-bottom: 60px">
 		<?include_once("includes/nav.php")?>
 		<?include_once("includes/footer.php")?>
 
-		
+
 		<div class="container">
 			<h1>Manage Points</h1>
 			<div class="row">
@@ -149,7 +149,7 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 						<th style="max-width:25px; text-align:right"><button class="btn btn-default btn-xs" onclick="selectNone()">Clear</button></th>
 					</thead>
 					<tbody id="directoryBody">
-						
+
 					</tbody>
 				</table>
 			</div>
@@ -159,17 +159,17 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 		<!--(768px is the Boostrap standard)-->
 		<style>
 		@media only screen and (max-width: 768px) {
-			table.respTable td:nth-child(2), 
-			table.respTable th:nth-child(2), 
-			table.respTable td:nth-child(3), 
-			table.respTable th:nth-child(3), 
-			table.respTable td:nth-child(4), 
+			table.respTable td:nth-child(2),
+			table.respTable th:nth-child(2),
+			table.respTable td:nth-child(3),
+			table.respTable th:nth-child(3),
+			table.respTable td:nth-child(4),
 			table.respTable th:nth-child(4) {display: none;}
 		}
 		</style>
-		
-		
-		
+
+
+
 		<div class="modal" id="pointsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -189,7 +189,7 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="modal" id="addRemoveModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -243,7 +243,7 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="modal" id="addRemoveSelectedModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -293,59 +293,59 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 				</div>
 			</div>
 		</div>
-		
+
 	</body>
-	
+
 	<script>
 		var order = 'Points'; //default; this is what the page already is
 		var order_query = 'numpoints';
 		var categorize = false;
-		
+
 		var guideList;
 		var guideIDList;
 
 		$(function() {
 			refresh();
-			
+
 			$('#orderByBox').on('change', function() {
 				refreshOrder($(this).val());
 			});
-			
+
 			$('#pointDescriptionBox').on('change', function() {
 				processPointSelection();
 			});
-			
+
 			$('#addPointsRadio').change( function() {
 				addPointsMode();
 			});
-			
+
 			$('#removePointsRadio').change( function() {
 				removePointsMode();
 			});
-			
+
 			$('#pointDescriptionSelectedBox').on('change', function() {
 				processPointSelectionSelected();
 			});
-			
+
 			$('#addPointsSelectedRadio').change( function() {
 				addPointsModeSelected();
 			});
-			
+
 			$('#removePointsSelectedRadio').change( function() {
 				removePointsModeSelected();
 			});
-			
+
 			//This code taken directly from the Typeahead website:
 			var substringMatcher = function(strs) {
 			  return function findMatches(q, cb) {
 				var matches, substrRegex;
-			 
+
 				// an array that will be populated with substring matches
 				matches = [];
-			 
+
 				// regex used to determine if a string contains the substring `q`
 				substrRegex = new RegExp(q, 'i');
-			 
+
 				// iterate through the pool of strings and for any string that
 				// contains the substring `q`, add it to the `matches` array
 				$.each(strs, function(i, str) {
@@ -355,14 +355,14 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 					matches.push({ value: str });
 				  }
 				});
-			 
+
 				cb(matches);
 			  };
 			};
-			
+
 			guideList = <?echo $guides?>;
 			guideIDList = <?echo $guideIDs?>;
-			 
+
 			$('#pointGuideBox .typeahead').typeahead({
 			  hint: true,
 			  highlight: true,
@@ -414,7 +414,7 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 						categorize = false;
 						break;
 				}
-				
+
 				refresh();
 			}
 		}
@@ -435,13 +435,13 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 					});
 				});
 		}
-		
+
 		function pointsPopup(guideID) {
 			$('.modal').modal('hide');
 			$('#pointsModal').modal('show');
 			updateGuidePoints(guideID);
 		}
-		
+
 		function updateGuidePoints(guideID) {
 			$('#pointsTable').html('<h3 style="text-align:center">Loading...</h3>');
 			$.get("functions/printpointlist.php",{
@@ -457,7 +457,7 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 					$('#guideTours').html(data.tourCount);
 				});
 		}
-		
+
 		function addRemovePopup(guideID) {
 			$('.modal').modal('hide');
 			guideIndex = guideIDList.indexOf(guideID);
@@ -469,27 +469,27 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 			processPointSelection();
 			$('#addRemoveModal').modal('show');
 		}
-		
+
 		function addPointsMode() {
-			$('#pointDescriptionBox').html('<?echo addcslashes($addPointOptions,"'")?>');
+			$('#pointDescriptionBox').html('<? echo addcslashes($addPointOptions,"'") ?>');
 			$('#pointSign').html('+');
 			$('#pointSign').css('color','#FF0000')
 			processPointSelection();
 		}
-		
+
 		function removePointsMode() {
 			$('#pointDescriptionBox').html('<?echo addcslashes($removePointOptions,"'")?>');
 			$('#pointSign').html('&ndash;');
 			$('#pointSign').css('color','#009900')
 			processPointSelection();
 		}
-		
+
 		function processPointSelection() {
 			var valueArr = $('#pointDescriptionBox').val().split(",");
 			var typeID = Number(valueArr[0]);
 			var pointVal = Number(valueArr[1]);
 			//alert('typeID='+typeID+'; pointVal='+pointVal); //for debugging
-			
+
 			if (typeID==0) {
 				$('#pointNumBox').prop('disabled',false);
 				$('#pointNumBox').val('');
@@ -500,7 +500,7 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 				$('#pointCommentBox').attr('placeholder','(optional)');
 			}
 		}
-		
+
 		function submitPoint() {
 			var valueArr = $('#pointDescriptionBox').val().split(",");
 			var typeID = Number(valueArr[0]);
@@ -518,7 +518,7 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 			} else {
 				sign = 1;
 			}
-			
+
 			//alert('typeID='+typeID+'\npointVal='+pointVal+'\ncomment='+comment+'\nguideName='+guideName+'\nguideIndex='+guideIndex+'\nguideID='+guideID); //for debugging
 			//check for errors before submitting:
 			if (guideName=='') {
@@ -548,7 +548,7 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 				});
 			}
 		}
-		
+
 		//===== BULK ADD/REMOVE: =====
 		function addRemoveSelectedPopup() {
 			$('.modal').modal('hide');
@@ -570,7 +570,7 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 			$('#pointSignSelected').css('color','#FF0000')
 			processPointSelectionSelected();
 		}
-		
+
 		function removePointsModeSelected() {
 			$('#pointDescriptionSelectedBox').html('<?echo addcslashes($removePointOptions,"'")?>');
 			$('#pointSignSelected').html('&ndash;');
@@ -582,7 +582,7 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 			var typeID = Number(valueArr[0]);
 			var pointVal = Number(valueArr[1]);
 			//alert('typeID='+typeID+'; pointVal='+pointVal); //for debugging
-			
+
 			if (typeID==0) {
 				$('#pointNumSelectedBox').prop('disabled',false);
 				$('#pointNumSelectedBox').val('');
@@ -623,7 +623,7 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 					guides[guides.length] = $(this).val();
 				});
 				//alert('Selected Guides: ' + guides); //for debugging
-				
+
 				//submit selected:
 				for (i=0; i<guides.length; i++) {
 					guideID = guides[i];
@@ -642,13 +642,13 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 				}
 			}
 		}
-		
+
 		function selectNone() {
 			$(':checkbox:checked').each( function() {
 				$(this).prop('checked',false);
 			});
 		}
-		
+
 		function deletePoint(pointID,guideID) {
 			$.post("functions/changepoints.php",{
 					deletePoint:1,

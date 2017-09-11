@@ -29,7 +29,17 @@ switch($type){
 }
 
 $html =
-"<table class='table'>
+ "<center>
+  <b>With selected:</b><br>
+  <button type='button' class='btn btn-primary' onClick='handle(-1)'>Handle</button>
+  <button type='button' class='btn btn-success' onClick='cover(-1)'>Cover</button>
+  <button type='button' class='btn btn-danger' onClick='miss(-1)'>Miss</button>
+  <button type='button' class='btn btn-warning' onClick='late(-1)'>Late</button>
+  </center>
+
+<br>
+
+<table class='table' id='oh_table'>
   <thead>
     <tr>
       <th>Delete</th>
@@ -38,6 +48,7 @@ $html =
       <th>Scheduled Time</th>
       <th>Logged Time</th>
       <th>Actions</th>
+      <th>Select</th>
     </tr>
   </thead>
   <tbody>";
@@ -93,6 +104,8 @@ $oh_query = mysqli_query($link,"SELECT log_id,sch_id,cover_id,sch_time,log_time,
 
     $sch_time = date("D j/m/Y - g:i a",strtotime($sch_time));
 
+    $select = "<input type='checkbox' value='$log_id'>";
+
     $html = $html."<tr bgcolor='$row_color'>
                     <td> $delete_btn</td>
                     <td>".$sch_firstname." ".$sch_lastname."</td>
@@ -100,6 +113,7 @@ $oh_query = mysqli_query($link,"SELECT log_id,sch_id,cover_id,sch_time,log_time,
                     <td>".$sch_time."</td>
                     <td>".$log_time."</td>
                     <td>".$btn."</td>
+                    <td>".$select."</td>
                   </tr>";
   }
   echo $html."</tbody></table>"
