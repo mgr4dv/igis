@@ -13825,3 +13825,21 @@
 [10-Sep-2017 17:59:36 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/myigis.php on line 52
 [10-Sep-2017 18:06:14 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/myigis.php on line 51
 [10-Sep-2017 18:06:14 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/uvaguide/public_html/igis/myigis.php on line 52
+[15-Sep-2017 00:04:40 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2002): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2) in /home1/uvaguide/public_html/igis/functions/link.php on line 2
+[15-Sep-2017 00:04:40 America/New_York] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home1/uvaguide/public_html/igis/login.php on line 35
+[15-Sep-2017 00:04:40 America/New_York] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home1/uvaguide/public_html/igis/login.php on line 37
+[15-Sep-2017 00:04:40 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/uvaguide/public_html/igis/login.php on line 43
+[15-Sep-2017 00:04:40 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/uvaguide/public_html/igis/login.php on line 43
+[15-Sep-2017 00:04:40 America/New_York] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/uvaguide/public_html/igis/functions/link.php:2) in /home1/uvaguide/public_html/igis/login.php on line 51
+[15-Sep-2017 00:04:42 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2002): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2) in /home1/uvaguide/public_html/igis/functions/link.php on line 2
+[15-Sep-2017 00:04:42 America/New_York] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home1/uvaguide/public_html/igis/login.php on line 35
+[15-Sep-2017 00:04:42 America/New_York] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home1/uvaguide/public_html/igis/login.php on line 37
+[15-Sep-2017 00:04:42 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/uvaguide/public_html/igis/login.php on line 43
+[15-Sep-2017 00:04:42 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/uvaguide/public_html/igis/login.php on line 43
+[15-Sep-2017 00:04:42 America/New_York] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/uvaguide/public_html/igis/functions/link.php:2) in /home1/uvaguide/public_html/igis/login.php on line 51
+[15-Sep-2017 00:04:45 America/New_York] PHP Warning:  mysqli_connect(): (HY000/2002): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2) in /home1/uvaguide/public_html/igis/functions/link.php on line 2
+[15-Sep-2017 00:04:45 America/New_York] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home1/uvaguide/public_html/igis/login.php on line 35
+[15-Sep-2017 00:04:45 America/New_York] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home1/uvaguide/public_html/igis/login.php on line 37
+[15-Sep-2017 00:04:45 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/uvaguide/public_html/igis/login.php on line 43
+[15-Sep-2017 00:04:45 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home1/uvaguide/public_html/igis/login.php on line 43
+[15-Sep-2017 00:04:45 America/New_York] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/uvaguide/public_html/igis/functions/link.php:2) in /home1/uvaguide/public_html/igis/login.php on line 51

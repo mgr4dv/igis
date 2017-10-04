@@ -7,7 +7,8 @@ mysqli_query($link,"SET time_zone = 'US/Eastern';");
 $db=mysqli_query($link,"SELECT firstname,lastname,log_id
                         FROM oh_log LEFT JOIN guides ON cover_id=guide_id
                         WHERE DATE(sch_time)=CURDATE()
-                        AND CURTIME()<ADDDATE(sch_time, INTERVAL 10 MINUTE)
+                        AND CURTIME()<ADDDATE(sch_time, INTERVAL 30 
+MINUTE)
                         AND CURTIME()>=ADDDATE(sch_time, INTERVAL -30 MINUTE)
                         AND log_time IS NULL
                         ORDER BY sch_time");
