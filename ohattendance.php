@@ -460,7 +460,7 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 
 					$.post("functions/changepoints.php",{
 						oh_id:id,
-						pointVal:1,
+						pointVal:0.5,
 						deletePoint:0,
 						comment:"Late to OH"
 					},function(data){
