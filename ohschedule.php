@@ -127,7 +127,7 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 
 
 		<div class="container">
-			<h1>Office Hour Schedule</h1>
+			<h1>Office Hour Schedule <button class="btn btn-danger" data-toggle="modal" data-target="#ohArchiveModal">Archive</button></h1>
 			<div class="row">
 			<div class="col-md-5"></div>
 							<div class="col-md-2"></div>
@@ -264,6 +264,32 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 				</div>
 			</div>
 		</div>
+			
+			
+			
+			
+		<div class="modal fade bd-example-modal-sm" id="ohArchiveModal" tabindex="-1" role="dialog" aria-labelledby="archiveLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content modal-sm">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title" id="archiveLabel">Archive OH Log</h4>
+					</div>
+					<div class="modal-body" style="text-align:center">
+						<div id='Name' class='input-group date'>
+						WARNING: This will delete the OH schedule and permenantly archive the OH Log under the name provided.
+						</br>
+						</br>
+						<b>Archive Name</b><input id='ArchiveNameBox' type='text' class="form-control" data-provide="text" style="text-align:left;"/>
+						</div>
+						<br>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" onclick="archiveOH()" data-dismiss="modal">Archive</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
 
 
 	</body>
@@ -372,7 +398,15 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 		submitDay = day;
 	}
 
-
+	function archiveOH(){
+		var archiveName = $('#ArchiveNameBox').val();
+		$.post("functions/archiveoh.php",{
+			archiveName:archiveName
+		},function(data){
+			refresh();
+		});
+		refresh();
+	}
 
 	</script>
 </html>

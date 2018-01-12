@@ -56,7 +56,7 @@ $html =
 $oh_query = mysqli_query($link,"SELECT log_id,sch_id,cover_id,sch_time,log_time,
                                 firstname,lastname,handled
                                 FROM oh_log LEFT JOIN guides ON cover_id=guide_id
-                                WHERE ".$where_part."
+                                WHERE ".$where_part." AND archive IS NULL
                                 ORDER BY sch_time");
 
   while($oh = mysqli_fetch_array($oh_query)){
