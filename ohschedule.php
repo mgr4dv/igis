@@ -356,7 +356,6 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 	});
 
 	function refresh() {
-
 		$.get("functions/printohschedule.php",{}, function(data) {
 				$('#target').html(data);
 			});

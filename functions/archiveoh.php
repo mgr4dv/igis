@@ -8,6 +8,6 @@ $archiveName = $_POST['archiveName'];
 
 mysqli_query($link,"UPDATE `oh_log` SET `archive`='$archiveName' WHERE `archive` IS NULL ;");
 
-mysqli_query($link,"DELETE * FROM oh_schedule WHERE 1=1");
+mysqli_query($link,"DELETE FROM `oh_schedule`");
 
 ?>
