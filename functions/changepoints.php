@@ -60,7 +60,10 @@ if ($deletePoint==1) {
 	$headers .= "Content-Type: text/html; charset=ISO-8859-1\n";
 
 	try {
-	mail($toAddress,"Updated Points for ".$toName,"You're receiving this email because your point value has been updated. You received ".$pointVal." point(s) for the following reason:\n".$fullDesc."\n\nThis messsage was automatically sent by IGIS.","From:dez6rq@virginia.edu\n");
+	mail($toAddress,"Updated Points for ".$toName,"You're receiving this email because your point value has been updated. ".
+	"You received ".$pointVal." point(s) for the following reason:\n".$fullDesc."\n\nThis messsage was automatically sent by IGIS. 
+	You can reply to it to contact the current disciplinarian.",
+	"From:disciplinarian@uvaguides.org\n");
 	} catch (Exception $e) {
 		$out['error'] = "Error sending email:\n\n".$e->getMessage();
 	}
