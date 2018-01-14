@@ -1,6 +1,6 @@
 <?
 
-include("functions/link.php");
+include("./link.php");
 
 $db=mysqli_query($link,"SELECT * FROM oh_schedule");
 
@@ -16,19 +16,11 @@ $db=mysqli_query($link,"SELECT * FROM oh_schedule");
 			$schedule_date = date('Y-m-d', strtotime("+$day day"));
 
 			mysqli_query($link,"INSERT INTO oh_log (sch_id,cover_id,sch_time) VALUES ('".$guide_id."','".$guide_id."','".$schedule_date." ".$time."')");
-		  }
-		  
-		while ($row=mysqli_fetch_array($db)) {
-
-			$oh_id = $row[0];
-			$guide_id = $row[1];
-			$day = $row[2]+8;
-			$time = $row[3];
-
-			$day = $day; 
-
+			
+			$day = $day + 7;
+			
 			$schedule_date = date('Y-m-d', strtotime("+$day day"));
-
+			
 			mysqli_query($link,"INSERT INTO oh_log (sch_id,cover_id,sch_time) VALUES ('".$guide_id."','".$guide_id."','".$schedule_date." ".$time."')");
 		  }
 	?>

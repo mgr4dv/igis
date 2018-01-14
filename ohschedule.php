@@ -231,12 +231,15 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 				</div>
 				</div>
 
-
+					
 					</div>
+				<button class="btn btn-success" onclick="firstTwo()">Generate First Two Weeks</button>
 				</div>
 				</div>
+	
 			</div>
 		</div>
+
 
 		<div class="modal fade bd-example-modal-sm" id="ohAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-sm">
@@ -407,5 +410,12 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 		refresh();
 	}
 
+	function firstTwo(){
+		$.get("functions/firsttwoweeks.php",{}
+		,function(data){
+
+		});	
+	}
+	
 	</script>
 </html>
