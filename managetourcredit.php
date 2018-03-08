@@ -1,6 +1,9 @@
 <? require_once("authenticate.php");
 date_default_timezone_set('America/New_York');
 
+$permssion_level = 2;
+include("permission.php");
+
 include("functions/link.php");
 $unhandled_tours = mysqli_query($link, "SELECT * FROM tours_scheduled
 										RIGHT JOIN tours_info ON tours_scheduled.tour_id=tours_info.tour_id

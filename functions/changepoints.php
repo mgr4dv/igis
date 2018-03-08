@@ -61,7 +61,7 @@ if ($deletePoint==1) {
 
 	try {
 	mail($toAddress,"Updated Points for ".$toName,"You're receiving this email because your point value has been updated. ".
-	"You received ".$pointVal." point(s) for the following reason:\n".$fullDesc."\n\nThis messsage was automatically sent by IGIS. 
+	"You received ".$pointVal." point(s) for the following reason:\n".$fullDesc."\n\nThis messsage was automatically sent by IGIS.
 	You can reply to it to contact the current disciplinarian.",
 	"From:disciplinarian@uvaguides.org\n");
 	} catch (Exception $e) {

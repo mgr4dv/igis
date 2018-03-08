@@ -1,5 +1,8 @@
 <? date_default_timezone_set('America/New_York');
 require_once("authenticate.php");
+
+$permssion_level = 2;
+include("permission.php");
 ?>
 <!DOCTYPE html>
 

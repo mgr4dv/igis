@@ -3,6 +3,9 @@ date_default_timezone_set('America/New_York');
 require_once("authenticate.php");
 include("functions/link.php");
 
+$permssion_level = 2;
+include("permission.php");
+
 //get tour types for the new tour modal:
 $tourTypes=mysqli_query($link,"select * from tours_types WHERE offered='yes' ORDER by name ASC");
 $tourTypeOptions = "";

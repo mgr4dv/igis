@@ -1,4 +1,8 @@
-<? require_once("authenticate.php"); ?>
+<? require_once("authenticate.php"); 
+
+$permssion_level = 2;
+include("permission.php");
+?>
 
 <?
 //get info for the tour editing stuff:

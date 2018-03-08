@@ -1,5 +1,7 @@
 <? date_default_timezone_set('America/New_York');
 require_once("authenticate.php");
+$permssion_level = 3;
+include("permission.php");
 ?>
 
 <?
@@ -413,7 +415,7 @@ $guideIDs = substr($guideIDs, 0, -1)."]"; //cut off the final comma and then clo
 	function firstTwo(){
 		$.get("functions/firsttwoweeks.php",{}
 		,function(data){
-
+			
 		});	
 	}
 	

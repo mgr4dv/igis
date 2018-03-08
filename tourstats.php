@@ -1,5 +1,7 @@
 <? date_default_timezone_set('America/New_York');
 require_once("authenticate.php");
+$permssion_level = 1;
+include("permission.php");
 
 
 $beginningOfTourRecords = 2007; //that's the earliest fall semester on record in the IGIS database

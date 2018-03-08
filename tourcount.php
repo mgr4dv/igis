@@ -1,5 +1,7 @@
 <? date_default_timezone_set('America/New_York');
 require_once("authenticate.php");
+$permssion_level = 1;
+include("permission.php");
 
 $currYear = date('Y');
 //if the current date is before June 1st of the current year...
