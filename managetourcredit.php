@@ -1,7 +1,7 @@
 <? require_once("authenticate.php");
 date_default_timezone_set('America/New_York');
 
-$permssion_level = 2;
+$permission_level = 2;
 include("permission.php");
 
 include("functions/link.php");

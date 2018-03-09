@@ -1,6 +1,6 @@
 <? date_default_timezone_set('America/New_York');
 require_once("authenticate.php");
-$permssion_level = 1;
+$permission_level = 1;
 include("permission.php");
 
 $currYear = date('Y');

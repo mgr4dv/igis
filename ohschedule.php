@@ -1,6 +1,6 @@
 <? date_default_timezone_set('America/New_York');
 require_once("authenticate.php");
-$permssion_level = 3;
+$permission_level = 3;
 include("permission.php");
 ?>
 

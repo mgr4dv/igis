@@ -1,5 +1,5 @@
 <? require_once("authenticate.php"); 
-$permssion_level = 2;
+$permission_level = 2;
 include("permission.php");
 ?>
 <?
